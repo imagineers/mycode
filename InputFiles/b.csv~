@@ -1,0 +1,5 @@
+CustomerId	CustomerName	CustomerCity	CustomerCountry	CustomerEmail	CustomerDateOFBirth	CustomerAge	CustomerGender
+101	Anshu	Pune	China	adh3@adh.com	13-10-1990	22	M
+102	Raju	Pune	India	sdf@sdf.com	02-10-1964	45	M
+103	Kajal	Ghaziabad	USA	ert@ert.com	24-5-1991	21	F
+104	Ram	Pune	Canada	lmn@lmn.com	05-05-1970	34	M

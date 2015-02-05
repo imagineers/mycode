@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartJoinConfig>
+	<DataSources>
+		<DataSource connectionString="InputFiles/b.csv" query="" dataSourceType="csv" preference="1">
+			<Columns>
+				<Column name="CustomerName" normalizedName="Name" type="Pivot" mergeAction="MERGE" weight="10" />
+				<Column name="Phone" normalizedName="Phone" type="SuperKey" mergeAction="UNMERGE" weight="50" />
+				<Column name="CustomerCountry" normalizedName="Country" type="SuperKey" mergeAction="MERGE" weight="10" />
+				<Column name="CustomerEmail" normalizedName="email" type="CandidateKey" mergeAction="UNMERGE" />
+			</Columns>
+		</DataSource>	
+		<DataSource connectionString="InputFiles/a.csv" query="" dataSourceType="csv" preference="2">
+			<Columns>
+				<Column name="Name" normalizedName="Name" type="Pivot" mergeAction="MERGE" weight="10" />
+				<!--<Column name="CustomerPhone" normalizedName="Phone" type="SuperKey" mergeAction="UNMERGE" weight="50" />-->
+				<Column name="Country" normalizedName="Country" type="SuperKey" mergeAction="MERGE" weight="10" />
+				<Column name="Email" normalizedName="email" type="CandidateKey" mergeAction="UNMERGE" />
+				<!--<Column name="address" normalizedName="address" mergeAction="merge,unmerge,latest" type="mergekey">  -->
+			</Columns>
+		</DataSource>
+<!--
+<DataSource connectionString="InputFiles/b.csv" query="" dataSourceType="csv" preference="1">
+			<Columns>
+				<Column name="Name" normalizedName="Name" type="Pivot" mergeAction="MERGE" weight="10" />
+				<Column name="Phone" normalizedName="Phone" type="SuperKey" mergeAction="UNMERGE" weight="50" />
+				<Column name="Country" normalizedName="Country" type="SuperKey" mergeAction="MERGE" weight="10" />
+				<Column name="Email" normalizedName="email" type="CandidateKey" mergeAction="UNMERGE" />
+			</Columns>
+		</DataSource>
+-->
+
+
+<!--
+		<DataSource connectionString="InputFiles/c.csv" query="" dataSourceType="csv" preference="3">
+			<Columns>
+				<Column name="UserName" normalizedName="Name" type="Pivot" mergeAction="MERGE" weight="10" />
+				<Column name="UserPhone" normalizedName="Phone" type="SuperKey" mergeAction="UNMERGE" weight="50" />
+				<Column name="UserCountry" normalizedName="Country" type="SuperKey" mergeAction="MERGE"  weight="10" />
+				<Column name="UserEmail" normalizedName="email" type="CandidateKey" mergeAction="UNMERGE" />
+			</Columns>
+		</DataSource>
+-->	
+	</DataSources>
+	<MatchType>FAST_MATCH</MatchType>
+	<JoinType>LEFT_OUTER_JOIN</JoinType>
+	<MinThresholdPercentage>70</MinThresholdPercentage>
+	<SynonymsList>
+		<SynonymForColumn normalizedNames="Country">
+			<Group>
+				<Synonyms>India, In, Bharat, Hindustan</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>United States of America, USA, America</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>Sri Lanka, SL</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>South Africa, SA, S Africa</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>England, Eng</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>Russia, Rus</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>China, Ch</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>Japan, Ja</Synonyms>
+			</Group>
+			<Group>
+				<Synonyms>Canada, Ca</Synonyms>
+			</Group>
+			<!--<Group>India, In, Bharat, Hindustan</Group>
+			<Group>United States of America, USA, America</Group>
+			<Group>Sri Lanka, SL</Group>
+			<Group>South Africa, SA</Group>
+			<Group>England, Eng</Group>
+			<Group>Russia, Rus</Group>
+			<Group>China, Ch</Group>-->
+		</SynonymForColumn>
+	</SynonymsList>
+	<TargetDataSources>
+		<TargetDataSource connectionString="output/smartjoinoutput" type="csv">
+			<Column targetColumnName="Name" sourceColumnName="Name" dataSourceName="a.csv" />
+			<Column targetColumnName="Phone" sourceColumnName="Phone" dataSourceName="a.csv" />
+			<Column targetColumnName="Country" sourceColumnName="Country" dataSourceName="a.csv" />
+			<Column targetColumnName="email" sourceColumnName="Email" dataSourceName="a.csv" />
+		</TargetDataSource>
+		<TargetDataSource connectionString="" type="">
+			<Column targetColumnName="" sourceColumnName="" dataSourceName="" />
+			<Column targetColumnName="" sourceColumnName="" dataSourceName="" />
+			<Column targetColumnName="" sourceColumnName="" dataSourceName="" />
+			<Column targetColumnName="" sourceColumnName="" dataSourceName="" />
+		</TargetDataSource>
+	</TargetDataSources>
+</SmartJoinConfig>
+
